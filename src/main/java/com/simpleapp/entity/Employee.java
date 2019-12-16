@@ -1,24 +1,38 @@
-package com.simpleapp.dto;
+package com.simpleapp.entity;
 
 
+import javax.persistence.*;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Objects;
 
-public class Employee {
+@Entity
+@Table(name = "employee")
+public class Employee{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "employee_id")
     private Long employeeId;
 
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "department_id")
     private Long departmentId;
 
+    @Column(name = "job_title")
     private String jobTitle;
 
+    @Column(name = "gender")
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
 

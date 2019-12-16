@@ -20,7 +20,7 @@
         <tomcat-embed-core.version>9.0.17</tomcat-embed-core.version>
         <spring-jdbc.version>5.1.6.RELEASE</spring-jdbc.version>
         <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
-        <hibernate-core.version>5.3.9.Final</hibernate-core.version>
+        <hibernate-core.version>5.4.9.Final</hibernate-core.version>
         <jackson-databind.version>2.9.8</jackson-databind.version>
 
     </properties>
@@ -36,6 +36,10 @@
         <!-- Spring-Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
@@ -44,6 +48,11 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Spring-Boot-Devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
 
         <!-- Spring -->
         <dependency>
@@ -66,6 +75,11 @@
                     <artifactId>servlet-api</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.1.6.RELEASE</version>
         </dependency>
 
         <!-- Freemarker -->
@@ -96,11 +110,22 @@
             <version>${mysql-connector-java.version}</version>
         </dependency>
 
-        <!-- Hibernate -->
+        <!-- HibernateUtil -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-hibernate -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-hibernate</artifactId>
+            <version>1.2.9</version>
         </dependency>
 
         <!-- JSON https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
@@ -109,6 +134,16 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-databind.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+            <scope>provided</scope>
+        </dependency>
+
+
 
     </dependencies>
 

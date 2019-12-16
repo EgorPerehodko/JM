@@ -1,4 +1,4 @@
-package com.simpleapp.dao;
+package com.simpleapp.rep;
 
 public class EmployeeDaoTest {
 }

@@ -1,7 +1,9 @@
 package com.simpleapp.service;
 
-import com.simpleapp.dao.EmployeeDao;
-import com.simpleapp.dto.Employee;
+import com.simpleapp.Exceptions.NoSuchIdException;
+import com.simpleapp.rep.EmployeeRepository;
+import com.simpleapp.entity.Employee;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,30 +11,37 @@ import java.util.List;
 @Service
 public class EmployeeService {
 
-    private EmployeeDao employeeDao;
+    private EmployeeRepository employeeRepository;
 
-    public EmployeeService(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     public void add(Employee employee) {
-        employeeDao.add(employee);
+        employeeRepository.save(employee);
     }
 
     public List<Employee> findAll() {
-        return employeeDao.findAll();
+        return employeeRepository.findAll();
     }
 
-    public Employee getById(Long id) {
-        return employeeDao.getById(id);
+    @SneakyThrows
+    public Employee findById(Long id) {
+        return employeeRepository.findById(id).orElseThrow(() -> new NoSuchIdException(id, "show"));
     }
 
+    @SneakyThrows
     public Employee update(Employee employee) {
-        employeeDao.update(employee);
-        return employee;
+        try {
+            employeeRepository.findById(employee.getEmployeeId()).orElseThrow(() -> new NoSuchIdException(employee.getEmployeeId(), "show"));
+        } catch (NoSuchIdException e) {
+            e.printStackTrace();
+            throw new NoSuchIdException(employee.getEmployeeId(), "update");
+        }
+        return employeeRepository.save(employee);
     }
 
     public void delete(Long id) {
-        employeeDao.delete(id);
+        employeeRepository.deleteById(id);
     }
 }

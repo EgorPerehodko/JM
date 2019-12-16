@@ -1,4 +1,4 @@
-package com.simpleapp.dto;
+package com.simpleapp.entity;
 
 public enum Gender {
     MALE,
