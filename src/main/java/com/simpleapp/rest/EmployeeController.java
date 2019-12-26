@@ -29,19 +29,19 @@ public class EmployeeController {
         return employeeService.findById(id);
     }
 
-    @PostMapping("/addEmployee")
+    @PostMapping("/employees")
     @ResponseStatus(HttpStatus.CREATED)
     public void addEmployee(@RequestBody Employee employee) {
         employeeService.add(employee);
     }
 
-    @PostMapping("/updateEmployee/{id}")
+    @PutMapping("/employees/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
         employeeService.update(id, employee);
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/employees/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEmployee(@PathVariable("id") Long id) {
             employeeService.delete(id);
