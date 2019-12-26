@@ -6,8 +6,8 @@
 </head>
 <body>
 <form name="employee" action="/updateEmployee" method="post">
-    <p>ID</p>
-    <input title="ID" type="number" name="employeeId" value="${employee.employeeId}" readonly>
+<#--    <p>ID</p>-->
+<#--    <input title="ID" type="number" name="employeeId" value="${employee.employeeId}" readonly>-->
     <p>Name</p>
     <input title="Name" type="text" name="firstName" value="${employee.firstName}">
     <p>Surname</p>

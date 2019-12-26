@@ -35,10 +35,10 @@ public class EmployeeController {
         employeeService.add(employee);
     }
 
-    @PostMapping("/updateEmployee")
+    @PostMapping("/updateEmployee/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void updateEmployee(@RequestBody Employee employee) {
-        employeeService.update(employee);
+    public void updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
+        employeeService.update(id, employee);
     }
 
     @PostMapping("/delete/{id}")

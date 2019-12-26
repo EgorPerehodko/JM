@@ -31,14 +31,20 @@ public class EmployeeService {
     }
 
     @SneakyThrows
-    public Employee update(Employee employee) {
-        try {
-            employeeRepository.findById(employee.getEmployeeId()).orElseThrow(() -> new NoSuchIdException(employee.getEmployeeId(), "show"));
-        } catch (NoSuchIdException e) {
-            e.printStackTrace();
-            throw new NoSuchIdException(employee.getEmployeeId(), "update");
-        }
-        return employeeRepository.save(employee);
+    public Employee update(Long id, Employee employee) {
+
+        return employeeRepository.findById(id).map(empl -> {
+                    empl.setFirstName(employee.getFirstName());
+                    empl.setLastName(employee.getLastName());
+                    empl.setDepartmentId(employee.getDepartmentId());
+                    empl.setJobTitle(employee.getJobTitle());
+                    empl.setGender(employee.getGender());
+                    empl.setDateOfBirth(employee.getDateOfBirth());
+                    return employeeRepository.save(empl);
+                })
+                .orElseThrow(() ->
+                    new NoSuchIdException(id, "update")
+                );
     }
 
     public void delete(Long id) {
