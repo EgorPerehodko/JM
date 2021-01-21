@@ -21,7 +21,7 @@
         <spring-jdbc.version>5.1.6.RELEASE</spring-jdbc.version>
         <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
         <hibernate-core.version>5.4.9.Final</hibernate-core.version>
-        <jackson-databind.version>2.9.8</jackson-databind.version>
+        <jackson-databind.version>2.9.10.7</jackson-databind.version>
 
     </properties>
 
