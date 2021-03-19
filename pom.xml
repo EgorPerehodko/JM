@@ -17,7 +17,7 @@
         <spring-context-support.version>3.2.4.RELEASE</spring-context-support.version>
         <spring-web.version>5.1.7.RELEASE</spring-web.version>
         <freemarker.version>2.3.23</freemarker.version>
-        <tomcat-embed-core.version>9.0.17</tomcat-embed-core.version>
+        <tomcat-embed-core.version>9.0.41</tomcat-embed-core.version>
         <spring-jdbc.version>5.1.6.RELEASE</spring-jdbc.version>
         <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
         <hibernate-core.version>5.4.9.Final</hibernate-core.version>
